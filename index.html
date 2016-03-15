@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Isometric</title>
+  <meta name="description" content="Web app for creating isometric and pixel illustrations.">
+
+  <!-- No zooming! -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Chrome / Android -->
+  <meta id="bar" name="theme-color" content="#212121">
+  <meta name="mobile-web-app-capable" content="yes">
+  <!-- <link rel="icon" sizes="144x144" href="icon.png"> -->
+
+  <!-- Safari / iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+
+  <!-- Web Components -->
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <script src="bower_components/p5.js/lib/p5.min.js"></script>
+  <script src="sketch.js"></script>
+  <link rel="import" href="elements.html">
+  <link rel="import" href="styles.html">
+</head>
+
+<body unresolved>
+  <paper-drawer-panel responsive-width="850px" drawer-width="300px">
+    <paper-header-panel id="drawer" drawer mode="seamed">
+      <paper-toolbar id="sidebar_toolbar" class="tall">
+        <div class="bottom paper-font-headline">Isometric</div>
+      </paper-toolbar>
+      <template is="dom-bind" id="app">
+        <paper-tabs selected="{{selected_tab}}" noink>
+          <paper-tab><iron-icon icon="image:palette"></iron-icon></paper-tab>
+          <paper-tab>  <iron-icon icon="image:grid-on"></iron-icon></paper-tab>
+          <paper-tab><iron-icon icon="description"></iron-icon></paper-tab>
+        </paper-tabs>
+        <iron-pages selected="{{selected_tab}}">
+          <section>
+            <paper-slider min="0" max="255" value="110" pin></paper-slider>
+          </section>
+          <section></section>
+          <section></section>
+        </iron-pages>
+      </template>
+    </paper-header-panel>
+    <paper-header-panel main mode="seamed">
+      <paper-toolbar id="app_toolbar">
+        <paper-icon-button id="drawer_toggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+        <div>Isometric</div>
+      </paper-toolbar>
+      <div id="main_container" class="layout vertical center-center">
+        <div class="flex"></div>
+        <div id="canvas" class="flex"></div>
+        <div class="layout horizontal center flex">
+          <paper-fab icon="image:brush" elevation="0" toggles></paper-fab>
+          <paper-fab icon="clear" elevation="0" toggles></paper-fab>
+          <paper-fab icon="image:colorize" elevation="0" toggles></paper-fab>
+        </div>
+      </div>
+    </paper-header-panel>
+  </paper-drawer-panel>
+  <script src="app.js"></script>
+</body>
+
+</html>

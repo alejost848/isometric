@@ -1,0 +1,79 @@
+<style is="custom-style">
+  :root {
+    --bg-color: #181818;
+    --dark-gray-color: #141414;
+    --accent-color: #FF1744;
+  }
+
+  /*Default typography styles*/
+  .paper-font-display4 {@apply(--paper-font-display4);}
+  .paper-font-display3 {@apply(--paper-font-display3);}
+  .paper-font-display2 {@apply(--paper-font-display2);}
+  .paper-font-display1 {@apply(--paper-font-display1);}
+  .paper-font-headline {@apply(--paper-font-headline);}
+  .paper-font-title {@apply(--paper-font-title);}
+  .paper-font-subhead {@apply(--paper-font-subhead);}
+  .paper-font-body2 {@apply(--paper-font-body1);}
+  .paper-font-body1 {@apply(--paper-font-body1);}
+  .paper-font-caption {@apply(--paper-font-caption);}
+  .paper-font-menu {@apply(--paper-font-menu);}
+  .paper-font-button {@apply(--paper-font-button);}
+
+  body {
+    margin: 0;
+    font-family: "Roboto";
+    color: white;
+  }
+
+  #main_container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-gray-color);
+  }
+
+  #app_toolbar {
+    display: none;
+    background-color: var(--accent-color);
+  }
+
+  #drawer{
+    background-color: var(--bg-color);
+  }
+
+  paper-tabs{
+    background-color: var(--accent-color);
+  }
+
+  paper-tab{
+    --paper-tab-content-unselected:{
+      color: rgba(20, 20, 20, 0.4);;
+    }
+  }
+
+  #sidebar_toolbar {
+    background-color: var(--accent-color);
+  }
+
+  paper-fab {
+    margin: 0 5px;
+    background-color: #191919;
+    @apply(--shadow-transition);
+    @apply(--shadow-none);
+  }
+
+  paper-fab:hover {
+    background-color: #303030;
+    @apply(--shadow-elevation-8dp);
+  }
+
+  paper-fab[active] {
+    background-color: var(--accent-color);
+  }
+
+  @media (max-width: 850px) {
+    #app_toolbar {
+      display: inline;
+    }
+  }
+</style>
